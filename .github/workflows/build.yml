@@ -1,0 +1,32 @@
+name: Build Ageode Mod
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Rust (for Geode CLI)
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        components: rustfmt, clippy
+        override: true
+
+    - name: Install Geode CLI
+      run: cargo install geode-cli
+
+    - name: Build .geode mod
+      run: geode build
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ageode-mod
+        path: build/*.geode
