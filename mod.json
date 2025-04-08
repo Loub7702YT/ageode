@@ -1,0 +1,9 @@
+{
+  "id": "ageode.menu",
+  "name": "Ageode",
+  "version": "1.0.0",
+  "developer": "loub7702YT",
+  "description": "A free cheat menu for Geometry Dash using Geode.",
+  "entry": "main.cpp",
+  "geode": "0.4.0"
+}
